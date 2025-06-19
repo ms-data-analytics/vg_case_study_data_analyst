@@ -1,0 +1,189 @@
+version: 2
+
+models:
+  - name: stg_staging_intermediate__accounts
+    description: "Cleaned accounts with proper date formats and trimmed text"
+    config:
+      materialized: table
+      schema: intermediate
+    columns:
+      - name: account_id
+        data_type: integer
+        description: "Unique identifier for the account"
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        data_type: integer
+        description: "Foreign key to customers table"
+        constraints:
+          - type: foreign_key
+            reference: ref('stg_staging_intermediate__customers')
+            to_columns: customer_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_staging_intermediate__customers')
+              field: customer_id
+      - name: account_type
+        data_type: varchar
+        description: "Type of account with trimmed whitespace"
+      - name: account_opening_date
+        data_type: date
+        description: "Date when account was opened, properly parsed"
+        tests:
+          - not_null
+          - date_is_past
+
+  - name: stg_staging_intermediate__customers
+    description: "Cleaned customers with trimmed text fields"
+    config:
+      materialized: table
+      schema: intermediate
+    columns:
+      - name: customer_id
+        data_type: integer
+        description: "Unique identifier for the customer"
+        tests:
+          - not_null
+          - unique
+      - name: firstname
+        data_type: varchar
+        description: "Customer's first name with trimmed whitespace"
+      - name: lastname
+        data_type: varchar
+        description: "Customer's last name with trimmed whitespace"
+      - name: age
+        data_type: integer
+        description: "Customer's age"
+      - name : branch_id
+        data_type: integer
+        description: "Branch ID where the customer is associated"
+        tests:
+          - not_null
+
+  - name: stg_staging_intermediate__fx_rates
+    description: "Cleaned FX rates with proper number and date formats"
+    config:
+      materialized: table
+      schema: intermediate
+    columns:
+      - name: currency_iso_code
+        data_type: varchar
+        description: "ISO currency code with trimmed whitespace"
+        tests:
+          - not_null
+          - unique
+      - name: fx_rate
+        data_type: float
+        description: "Exchange rate converted from German number format"
+        tests:
+          - not_null
+          - numeric_range:
+              min: 0
+      - name: fx_rate_date
+        data_type: date
+        description: "Date for the FX rate, properly parsed"
+        tests:
+          - not_null
+          - date_is_past
+
+  - name: stg_staging_intermediate__loans
+    description: "Cleaned loans with proper number and date formats and trimmed text"
+    config:
+      materialized: table
+      schema: intermediate
+    columns:
+      - name: customer_id
+        data_type: integer
+        description: "Foreign key to customers table"
+      - name: loan_id
+        data_type: integer
+        description: "Unique identifier for the loan"
+        tests:
+          - not_null
+          - unique
+      - name: loan_amount
+        data_type: float
+        description: "Loan amount converted from German number format"
+        tests:
+          - not_null
+          - numeric_range:
+              min: 0
+      - name: loan_type
+        data_type: varchar
+        description: "Type of loan with trimmed whitespace"
+      - name: interest_rate
+        data_type: float
+        description: "Interest rate converted from German number format"
+        tests:
+          - not_null
+          - numeric_range:
+              min: 0
+      - name: loan_term
+        data_type: integer
+        description: "Term of the loan in months"
+        tests:
+          - not_null
+          - accepted_values:
+              values: [12, 24, 36, 48, 60]
+      - name: approval_rejection_date
+        data_type: date
+        description: "Date when loan was approved or rejected, properly parsed"
+        tests:
+          - not_null
+          - date_is_past
+      - name: loan_status
+        data_type: varchar
+        description: "Status of the loan with trimmed whitespace"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['approved', 'rejected', 'closed']
+
+  - name: stg_staging_intermediate__transactions
+    description: "Cleaned transactions with proper number and date formats and trimmed text"
+    config:
+      materialized: table
+      schema: intermediate
+    columns:
+      - name: transaction_id
+        data_type: integer
+        description: "Unique identifier for the transaction"
+        tests:
+          - not_null
+          - unique
+      - name: transaction_date
+        data_type: date
+        description: "Date of transaction, properly parsed"
+      - name: account_id
+        data_type: integer
+        description: "Foreign key to accounts table"
+      - name: transaction_type
+        data_type: varchar
+        description: "Type of transaction with trimmed whitespace"
+      - name: transaction_amount
+        data_type: float
+        description: "Transaction amount converted from German number format"
+        tests:
+          - not_null
+          - numeric_range:
+              min: 0
+      - name: transaction_currency
+        data_type: varchar
+        description: "Currency of transaction with trimmed whitespace"
+  - name: stg_staging_intermediate__currencies
+    description: "Cleaned currency lkp table with proper trimmed text"
+    config:
+      materialized: table
+      schema: intermediate
+    columns:
+      - name: currency 
+        data_type: varchar
+        description: "Name of the currency with trimmed whitespace"
+      - name: currency_iso_code 
+        data_type: varchar
+        tests:
+          - not_null
+          - unique
+        description: "ISO code for the currency with trimmed whitespace"

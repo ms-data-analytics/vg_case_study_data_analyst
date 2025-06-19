@@ -1,0 +1,13 @@
+
+    
+    
+    
+    create table "casestudy"."raw"."dbt_project_evaluator_exceptions" ("fct_name" text,"column_name" text,"id_to_exclude" text,"comment" text)
+  ;
+    -- dbt seed --
+    
+          COPY "casestudy"."raw"."dbt_project_evaluator_exceptions" FROM '/workspaces/varengold_data_analyst_case/transformation/seeds/dbt_project_evaluator_exceptions.csv' (FORMAT CSV, HEADER TRUE)
+        
+
+;
+  

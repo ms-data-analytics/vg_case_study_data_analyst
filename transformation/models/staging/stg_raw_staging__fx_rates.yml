@@ -1,0 +1,32 @@
+models:
+  - name: stg_raw_staging__fx_rates
+    description: ""
+    columns:
+      - name: currency_iso_code
+        data_type: varchar
+        description: "ISO code of the currency"
+        constraints:
+          - type: primary_key
+          - type: foreign_key
+            reference: ref('stg_raw_staging__currencies')
+            to_columns: currency_iso_code
+        tests:
+          - not_null
+          - unique
+      - name: fx_rate
+        data_type: float 
+        description: "Exchange rate of the currency to EUR"
+        tests:
+          - not_null
+          - numeric_range:
+              min: 0
+      - name: fx_rate_date
+        data_type: date
+        description: "Date of the exchange rate"
+        tests:
+          - date_is_past
+      - name: has_date_parsing_error
+        data_type: boolean
+        description: "Indicates if there was a date parsing error"
+        tests:
+          - not_null

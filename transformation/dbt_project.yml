@@ -1,0 +1,52 @@
+name: 'vg_casestudy'
+version: '1.0.0'
+config-version: 2
+
+profile: 'default'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+  - "logs"
+
+models:
+  vg_casestudy:
+    +database: casestudy
+    intermediate:
+      +materialized: table
+      +schema: intermediate
+    marts:
+      +schema: marts
+      +materialized: table
+    reporting:
+      +schema: reporting
+      +materialized: table
+    staging:
+      +schema: staging
+      +materialized: view
+    main:
+      +schema: main
+      +materialized: table
+
+seeds:
+  vg_casestudy: 
+    +schema: raw 
+    currencies:
+      +schema: raw
+    
+flags:
+  # https://docs.getdbt.com/docs/dbt-commands/run#flags
+  # https://docs.getdbt.com/docs/dbt-commands/run#--full-refresh
+  full-refresh: true
+  # https://docs.getdbt.com/docs/dbt-commands/run#--fail-fast
+  fail-fast: true
+  send_anonymous_usage_stats: stg_staging_inter...
+  "dbt_date:time_zone": "Europe/Berlin"

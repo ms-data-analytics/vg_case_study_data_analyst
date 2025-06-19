@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: stg_raw_staging__accounts
+    description: "
+      This model is a staging table for the raw accounts data."
+    columns:
+      - name: account_id
+        data_type: integer
+        description: "Unique account id"
+        constraints:
+          - type: primary_key
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        data_type: integer
+        description: "Customer id associated with the account"
+        constraints:
+          - type: foreign_key
+            reference: ref('stg_raw_staging__customers')
+            columns: customer_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_raw_staging__customers')
+              field: customer_id
+      - name: account_type
+        data_type: varchar
+        description: "Type of the account"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['savings', 'current']
+      - name: account_opening_date
+        data_type: date
+        description: "Date of account opening"
+        tests:
+          - date_is_past
+      - name: account_openinig_date_raw
+        data_type: varchar
+        description: "Raw account opening date string"
+      - name: has_date_parsing_error
+        data_type: boolean
+        description: "Indicates if there was a date parsing error"

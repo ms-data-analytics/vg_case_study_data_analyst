@@ -1,0 +1,10 @@
+version: 2
+
+seeds:
+  - name: currencies
+    description: "Currencies with ISO codes and names"
+    columns:
+      - name: currency
+        description: "Currency name"
+      - name: currency_iso_code
+        description: "ISO code for the currency"

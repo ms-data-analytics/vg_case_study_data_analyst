@@ -1,0 +1,13 @@
+
+    
+    
+    
+    create table "casestudy"."raw"."currencies" ("currency" text,"currency_iso_code" text)
+  ;
+    -- dbt seed --
+    
+          COPY "casestudy"."raw"."currencies" FROM '/workspaces/varengold_data_analyst_case/transformation/seeds/currencies.csv' (FORMAT CSV, HEADER TRUE)
+        
+
+;
+  
