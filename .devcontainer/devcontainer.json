@@ -1,0 +1,63 @@
+{
+  "name": "casestudy",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "containerEnv": {
+    "HOSTNAME": "container"
+  },
+  "features": {},
+  "customizations": {
+    "jetbrains": {
+      "settings": {
+        "com.intellij:app:BuiltInServerOptions.builtInServerPort": 52044,
+        "com.intellij:app:HttpConfigurable.use_proxy_pac": true,
+        "com.intellij.database:app:DatabaseSettings.enable-local-filter-by-default": false
+      }
+    },
+    "vscode": {
+      "extensions": [
+        // theme and remote tools
+        "dracula-theme.theme-dracula",
+        "ms-vscode.remote-explorer",
+        "github.copilot",
+        // dbt
+        "butchland.vscode-dbt-bigquery-power-user",
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "git.enableSmartCommit": true,
+        "git.autofetch": true,
+        "git.confirmSync": false,
+        "editor.minimap.enabled": false,
+        "workbench.colorTheme": "Dracula",
+        "[jinja-sql]": {
+          "editor.defaultFormatter": "henriblancke.vscode-dbt-formatter"
+        },
+        "files.associations": {
+          "*.sql": "jinja-sql",
+          "*.yaml": "jinja-yaml",
+          "*.yml": "jinja-yaml"
+        },
+        "editor.quickSuggestions": {
+          "strings": true
+        },
+        "github.copilot.enable": {
+          "*": true,
+          "yaml": true,
+          "plaintext": false,
+          "markdown": false
+        }
+      }
+    }
+  },
+  "onCreateCommand": [
+    "/bin/bash",
+    "-i",
+    "-c",
+    "chmod +x .devcontainer/onCreateCommand.sh && .devcontainer/onCreateCommand.sh"
+  ]
+}
