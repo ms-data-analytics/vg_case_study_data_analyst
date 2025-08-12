@@ -35,8 +35,7 @@ We have a banking data model that contains data about our customers, their accou
 
 You'll be working primarily with the **Branch Performance Manager** who needs to understand how different branches are performing and wants to present findings to senior management using PowerBI dashboards.
 
-<details>
-<summary> <b> Tasks: </b> </summary>
+## Tasks
 
 **Setup:**
 
@@ -46,10 +45,7 @@ You'll be working primarily with the **Branch Performance Manager** who needs to
 4. [ ] Set up PowerBI Desktop and configure data ingestion from the database
 5. [ ] Create a PowerBI workspace for your analysis
 
-**Data Exploration (PowerBI):**
-
-- [ ] Create a comprehensive data exploration dashboard in PowerBI
-- [ ] Ingest the data into PowerBI using your preferred method (CSV export, database connection, etc.)
+> **⚠️ Important Note:** If you encounter any issues getting the devcontainer to run or if you get stuck with the setup, please don't hesitate to contact us immediately. Docker and devcontainer usage is not part of the evaluation - we've implemented this setup out of necessity to ensure all applicants have a consistent working environment.
 
 **Data Engineering (dbt):**
 
@@ -67,8 +63,6 @@ You've been asked to create a dashboard for the Branch Performance Manager, who 
 
 - [ ] Create a comprehensive Branch Performance Dashboard in PowerBI
 
-</details>
-
 **Submission:**
 
 - [ ] Please send us a link to your repository with complete dbt project
@@ -81,7 +75,6 @@ You've been asked to create a dashboard for the Branch Performance Manager, who 
 
 ### Evaluation Criteria:
 
-- **Data Exploration (PowerBI):** Effective use of PowerBI for data discovery and quality assessment
 - **Business Understanding:** Ability to translate data into business insights using appropriate visualizations
 - **Dashboard Design:** User experience, visual clarity, interactivity, and PowerBI best practices
 - **SQL/dbt Proficiency:** Query efficiency, correctness, and dbt best practices implementation
@@ -121,12 +114,11 @@ The entity-relationship diagram shows how the individual tables are related to e
 
 1. **Set Up dbt Project:** Initialize dbt project and configure database connection
 2. **Data Ingestion Strategy:** Choose your preferred method to get data into PowerBI
-3. **Explore the Data:** Start with PowerBI data exploration to understand what you're working with
-4. **Data Transformation:** Create dbt models for data preparation and transformation
-5. **Understand the Business:** Review the Branch Performance Manager requirements
-6. **Build PowerBI Dashboards:** Create interactive, executive-ready dashboards using transformed data
-7. **Think Like an Analyst:** Focus on insights that drive business decisions
-8. **Document Your Work:** Use dbt docs and prepare to explain your analysis approach
+3. **Data Transformation:** Create dbt models for data preparation and transformation
+4. **Understand the Business:** Review the Branch Performance Manager requirements
+5. **Build PowerBI Dashboards:** Create interactive, executive-ready dashboards using transformed data
+6. **Think Like an Analyst:** Focus on insights that drive business decisions
+7. **Document Your Work:** Use dbt docs and prepare to explain your analysis approach
 
 ### Data Ingestion Options:
 
