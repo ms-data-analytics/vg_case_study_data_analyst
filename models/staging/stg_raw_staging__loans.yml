@@ -1,0 +1,62 @@
+version: 2
+
+models:
+  - name: stg_raw_staging__loans
+    description: ""
+    columns:
+      - name: customer_id
+        data_type: integer
+        description: ""
+        constraints:
+          - type: foreign_key
+            to: ref('stg_raw_staging__customers')
+            to_columns: customer_id
+      - name: loan_id
+        data_type: integer
+        description: "Primary key for the loan"
+        constraints:
+          - type: primary_key
+        tests:
+          - not_null
+          - unique
+      - name: loan_amount
+        data_type: float 
+        description: "Amount of the loan"
+        tests:
+          - not_null
+          - numeric_range:
+              min: 0
+      - name: loan_type
+        data_type: varchar
+        description: "Type of Loan"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['personal', 'mortgage', "auto"]
+      - name: interest_rate
+        data_type: float 
+        description: "Interest rate of the loan"
+        tests:
+          - not_null
+          - numeric_range:
+              min: 0
+      - name: loan_term
+        data_type: integer
+        description: "Term of the loan in months"
+        tests:
+          - not_null
+          - accepted_values:
+              values: [12, 24, 36, 48, 60]
+      - name: approval_rejection_date
+        data_type: date
+        description: "Date when loan was approved or rejected"
+        tests:
+          - not_null
+          - date_is_past
+      - name: loan_status
+        data_type: varchar
+        description: "Status of the loan with trimmed whitespace"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['approved', 'rejected', 'closed']

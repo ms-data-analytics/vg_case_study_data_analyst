@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: stg_raw_staging__transactions
+    description: ""
+    columns:
+      - name: transaction_id
+        data_type: integer
+        description: ""
+        constraints:
+          - type: primary_key
+        tests:
+          - not_null
+          - unique
+
+      - name: transaction_date
+        data_type: varchar 
+        description: "Date of the transaction unparsed"
+      - name: account_id
+        data_type: integer
+        description: "ID of the account associated with the transaction"
+        constraints:
+          - type: foreign_key
+            to: ref('stg_raw_staging__accounts')
+            to_columns: account_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_raw_staging__accounts')
+              field: account_id
+      - name: transaction_type
+        data_type: varchar
+        description: "Type of transaction"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['transfer', 'deposit', 'withdrawal']
+      - name: transaction_amount
+        data_type: varchar
+        description: ""
+
+      - name: transaction_currency
+        data_type: varchar
+        description: "ISO code of the currency used in the transaction"
+        constraints:
+          - type: foreign_key
+            to: ref('stg_raw_staging__fx_rates')
+            to_columns: currency_iso_code

@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: raw
+    database: casestudy
+    schema: raw
+    tables:
+      - name: customers
+        description: ""
+      - name: accounts
+        description: ""
+      - name: fx_rates
+        description: ""
+      - name: loans
+        description: ""
+      - name: transactions
+        description: ""
+
+
+

@@ -1,0 +1,16 @@
+currency_iso_code,fx_rate,fx_rate_date,has_date_parsing_error
+USD,1.0,2023-03-01,false
+JPY,159.39,2023-03-01,false
+BGN,2.0,2023-03-01,false
+CZK,25.0,2023-03-01,false
+DKK,7.0,2023-03-01,false
+GBP,0.83849,2023-03-01,false
+HUF,399.45,2023-03-01,false
+PLN,4.0,2023-03-01,false
+RON,5.0,2023-03-01,false
+SEK,11.0,2023-03-01,false
+CHF,0.9512,2023-03-01,false
+ISK,146.9,2023-03-01,false
+NOK,12.0,2023-03-01,false
+TRY,40.0,2023-03-01,false
+AUD,2.0,2023-03-01,false

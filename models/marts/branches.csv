@@ -1,0 +1,100 @@
+branch_id;branch_name;region
+1;Filiale New York – USA;Nordamerika
+2;Filiale Los Angeles – USA;Nordamerika
+3;Filiale Toronto – Kanada;Nordamerika
+4;Filiale Chicago – USA;Nordamerika
+5;Filiale Vancouver – Kanada;Nordamerika
+6;Filiale San Francisco – USA;Nordamerika
+7;Filiale Houston – USA;Nordamerika
+8;Filiale Montreal – Kanada;Nordamerika
+9;Filiale Miami – USA;Nordamerika
+10;Filiale Mexico City – Mexiko;Nordamerika
+11;Filiale Guadalajara – Mexiko;Nordamerika
+12;Filiale Monterrey – Mexiko;Nordamerika
+13;Filiale São Paulo – Brasilien;Südamerika
+14;Filiale Rio de Janeiro – Brasilien;Südamerika
+15;Filiale Buenos Aires – Argentinien;Südamerika
+16;Filiale Santiago – Chile;Südamerika
+17;Filiale Bogotá – Kolumbien;Südamerika
+18;Filiale Lima – Peru;Südamerika
+19;Filiale Quito – Ecuador;Südamerika
+20;Filiale Caracas – Venezuela;Südamerika
+21;Filiale London – UK;Europa
+22;Filiale Manchester – UK;Europa
+23;Filiale Paris – Frankreich;Europa
+24;Filiale Lyon – Frankreich;Europa
+25;Filiale Berlin – Deutschland;Europa
+26;Filiale Hamburg – Deutschland;Europa
+27;Filiale München – Deutschland;Europa
+28;Filiale Frankfurt – Deutschland;Europa
+29;Filiale Madrid – Spanien;Europa
+30;Filiale Barcelona – Spanien;Europa
+31;Filiale Rom – Italien;Europa
+32;Filiale Mailand – Italien;Europa
+33;Filiale Amsterdam – Niederlande;Europa
+34;Filiale Brüssel – Belgien;Europa
+35;Filiale Warschau – Polen;Europa
+36;Filiale Prag – Tschechien;Europa
+37;Filiale Wien – Österreich;Europa
+38;Filiale Zürich – Schweiz;Europa
+39;Filiale Stockholm – Schweden;Europa
+40;Filiale Oslo – Norwegen;Europa
+41;Filiale Helsinki – Finnland;Europa
+42;Filiale Kopenhagen – Dänemark;Europa
+43;Filiale Athen – Griechenland;Europa
+44;Filiale Budapest – Ungarn;Europa
+45;Filiale Dublin – Irland;Europa
+46;Filiale Kairo – Ägypten;Afrika
+47;Filiale Kapstadt – Südafrika;Afrika
+48;Filiale Johannesburg – Südafrika;Afrika
+49;Filiale Nairobi – Kenia;Afrika
+50;Filiale Lagos – Nigeria;Afrika
+51;Filiale Abuja – Nigeria;Afrika
+52;Filiale Addis Abeba – Äthiopien;Afrika
+53;Filiale Accra – Ghana;Afrika
+54;Filiale Casablanca – Marokko;Afrika
+55;Filiale Tunis – Tunesien;Afrika
+56;Filiale Tokio – Japan;Asien
+57;Filiale Osaka – Japan;Asien
+58;Filiale Seoul – Südkorea;Asien
+59;Filiale Busan – Südkorea;Asien
+60;Filiale Peking – China;Asien
+61;Filiale Shanghai – China;Asien
+62;Filiale Shenzhen – China;Asien
+63;Filiale Hongkong – China;Asien
+64;Filiale Taipei – Taiwan;Asien
+65;Filiale Bangkok – Thailand;Asien
+66;Filiale Singapur – Singapur;Asien
+67;Filiale Kuala Lumpur – Malaysia;Asien
+68;Filiale Jakarta – Indonesien;Asien
+69;Filiale Manila – Philippinen;Asien
+70;Filiale Neu-Delhi – Indien;Asien
+71;Filiale Mumbai – Indien;Asien
+72;Filiale Bangalore – Indien;Asien
+73;Filiale Chennai – Indien;Asien
+74;Filiale Karachi – Pakistan;Asien
+75;Filiale Islamabad – Pakistan;Asien
+76;Filiale Dhaka – Bangladesch;Asien
+77;Filiale Hanoi – Vietnam;Asien
+78;Filiale Ho-Chi-Minh-Stadt – Vietnam;Asien
+79;Filiale Riad – Saudi-Arabien;Asien
+80;Filiale Dubai – VAE;Asien
+81;Filiale Abu Dhabi – VAE;Asien
+82;Filiale Doha – Katar;Asien
+83;Filiale Istanbul – Türkei;Asien
+84;Filiale Ankara – Türkei;Asien
+85;Filiale Sydney – Australien;Ozeanien
+86;Filiale Melbourne – Australien;Ozeanien
+87;Filiale Brisbane – Australien;Ozeanien
+88;Filiale Perth – Australien;Ozeanien
+89;Filiale Adelaide – Australien;Ozeanien
+90;Filiale Auckland – Neuseeland;Ozeanien
+91;Filiale Wellington – Neuseeland;Ozeanien
+92;Filiale Christchurch – Neuseeland;Ozeanien
+93;Filiale Casablanca – Marokko;Afrika
+94;Filiale Dakar – Senegal;Afrika
+95;Filiale Johannesburg – Südafrika;Afrika
+96;Filiale Nairobi – Kenia;Afrika
+97;Filiale Addis Abeba – Äthiopien;Afrika
+98;Filiale Tunis – Tunesien;Afrika
+99;Filiale Algier – Algerien;Afrika
