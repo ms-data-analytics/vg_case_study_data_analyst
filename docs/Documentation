@@ -1,0 +1,57 @@
+1. Setup & Installation
+	•	Anleitung von Varengold befolgt → Projektstruktur und Daten eingerichtet.
+	•	VS Code mit Devcontainer gestartet, dbt genutzt (Staging → Intermediate → Marts).
+	•	Power BI Desktop installiert, um die Analysen und Visualisierungen umzusetzen.
+	•	Später GitHub-Konto erstellt (ms-data-analytics) und ein Repository für die Abgabe angelegt.
+
+⸻
+
+2. Arbeiten in VS Code (dbt-Transformationen)
+	•	Intermediate Accounts: Bereinigung von Datumsfehlern (has_date_parsing_error).
+	•	Transactions:
+	•	Verknüpfung mit Accounts und Customers → jede Transaktion einer Filiale zugeordnet.
+	•	Versuch der EUR-Umrechnung mit letzter gültiger FX-Rate (fx_rate_date <= transaction_date).
+	•	Problem: Die SQL-Umrechnung in dbt funktionierte nicht stabil.
+
+⸻
+
+3. Export & Import nach Power BI
+	•	Relevante Tabellen (transactions, accounts, customers, loans, fx_rates, currencies) nach CSV exportiert.
+	•	In Power BI importiert und dort weiterverarbeitet.
+
+⸻
+
+4. Branch-Tabelle erstellt
+	•	In Power BI auf Basis der branch_id-Werte aus der Customer-Tabelle eine neue Branch-Tabelle gebaut.
+	•	Mithilfe von KI (z. B. ChatGPT) wurden reale Filialinformationen ergänzt (Filialname, Stadt, Land, Region).
+	•	Diese Branch-Tabelle in Power BI importiert und mit den anderen Tabellen verknüpft.
+	•	Ergebnis: Weltweite Filialen konnten auf einer Karte und in regionalen Vergleichen dargestellt werden.
+
+⸻
+
+5. EUR-Umrechnung in Power BI
+	•	Da die FX-Umrechnung in dbt Schwierigkeiten machte, wurde sie in Power BI finalisiert:
+	•	transactions mit fx_rates und currencies verknüpft.
+	•	Berechnete Spalten/Measures erstellt → EUR-Wert pro Transaktion.
+	•	Ergebnis: Alle KPIs und Visuals konnten konsistent in EUR angezeigt werden.
+
+⸻
+
+6. Dashboard in Power BI
+	•	Branch Performance Seite
+	•	KPI-Karten (Total Amount, Ø Amount, #Transactions, Active Customers, Loan Types, Loan Status).
+	•	Weltkarte mit Filialen.
+	•	Top-10 Branch Comparison.
+	•	Time Trend über Monate.
+	•	Info & Data Quality Seite
+	•	Checks: Negative Values, Blank Customer IDs, Account No. Match, Unknown Currencies.
+	•	Refresh Date + Date Period.
+	•	Ampel-Logik für Auffälligkeiten.
+
+⸻
+
+7. Probleme & Lösungen
+	•	Dezimaltrennung: CSV mit . statt , → Power BI interpretierte Werte falsch → Lösung: Trennzeichen/Locale angepasst.
+	•	Kartenvisualisierung: Zunächst deaktiviert → in den Optionen unter Global → Sicherheit aktiviert.
+	•	Geokodierung: Einige Städte falsch erkannt → Lösung: Spalten in Power BI als Ort und Land/Region kategorisiert.
+	•	FX-Logik: In dbt problematisch → in Power BI sauber gelöst.
